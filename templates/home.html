@@ -1,0 +1,135 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='C:\Internship-2023\static\plugins\tailwindcss\tailwind.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-image: url('C:/Internship-2023/static/images/mainbg.jpg');" class="flex-1 bg-blue-50 overflow-y-scroll">
+    
+    <div class="header text-custom-size bg-header">
+        <nav>
+            <div class="container mx-6 flex justify-between items-center">
+                <div class="text-white text-2xl font-semibold">Event Management System</div>
+
+      
+                <div class="hidden lg:flex space-x-4">
+
+
+                <a href="home" class="text-white hover:text-gray-200 animate__animated animate__fadeIn"><b>Home</b></a>
+                <a href="concerts" class="text-white hover:text-gray-200 animate__animated animate__fadeIn">Concerts</a>
+                <a href="contact-us" class="text-white hover:text-gray-200 animate__animated animate__fadeIn">Contact Us</a>
+
+                    {% if 'loggedin' in session %}
+                    <form method="POST" action="{{ url_for('logout') }}">
+                        <button type="submit" class="button2">{{ session['name'] }}</button>
+                    </form>
+                    {% else %}
+                    <div class="text-center">
+                        <a href="{{ url_for('login') }}" class="text-white hover:underline">Login</a>
+                        <span class="mx-2 text-gray-500">|</span>
+                        <a href="{{ url_for('register') }}" class="text-white hover:underline">Signup</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        
+        <div class="main-heading">
+            <h1>    <strong>SwiftBook</strong> Seamlessly Secure Your Spot in the Limelight</h1>
+        </div>
+    </div>
+
+    <!-- Empty Div for 20% of the height -->
+    <div class="image-section"></div>
+
+    <div class="content-area flex-1 flex flex-wrap justify-center items-center relative z-10">
+
+        <h2 class="recom text-3xl font-bold mb-4 text-center">Recommendations</h2>
+
+        <div class="flex justify-center">
+            <div class="flex">
+               
+                {% for recommended_concert in recommended_concerts %}
+                <div class="max-w-sm rounded overflow-hidden shadow-lg m-4 w-1/5 transition-transform transform hover:scale-105 left-moved">
+                   
+                    <img src="{{ url_for('static', filename='images/' + recommended_concert['image_url']) }}" class="w-full">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-lg mb-2">{{ recommended_concert['name'] }}</div>
+                    </div>
+                    <div class="px-6 py-4">
+                        <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Explore</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    <div class="flex items-center justify-center w-full py-4 bg-white">
+        <div class="w-10 h-10 bg-white m-2"></div>
+        <div class="w-10 h-10 bg-white m-2"></div>
+        <div class="w-10 h-10 bg-white m-2"></div>
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <footer class="bg-black bg-opacity-95 p-4 text-white">
+            <div class="container mx-auto">
+            <div class="flex justify-between">
+                <!-- Footer Navigation Links -->
+                <div class="w-1/3">
+                    <h2 class="text-lg font-semibold mb-2">Navigation</h2>
+                    <ul class="list-none">
+                        <li><a href="home" class="hover:text-gray-200">Home</a></li>
+                        <li><a href="concerts" class="hover:text-gray-200">Concerts</a></li>
+                        <li><a href="contact-us" class="hover:text-gray-200">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Us Section -->
+                <div class="w-1/3">
+                    <h2 class="text-lg font-semibold mb-2">Contact Us</h2>
+                    <p>Email: nagabadda@gmail.com</p>
+                    <p>Phone: 9676226228</p>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="w-1/3">
+                    <h2 class="text-lg font-semibold mb-2">Connect With Us</h2>
+                    <a href="https://www.facebook.com" class="text-white hover:text-gray-200">Facebook</a><br/>
+                    <a href="https://www.instagram.com" class="text-white hover:text-gray-200">Instagram</a><br/>
+                    <a href="mailto:nagabadda@gmail.com" class="text-white hover:text-gray-200">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+<script>
+  
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>

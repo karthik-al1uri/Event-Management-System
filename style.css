@@ -1,0 +1,331 @@
+body {
+    background-image: url('images/mainbg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.custom-size {
+    font-size: 1.1rem; /* Adjust the factor as needed */
+}
+
+.header {
+    height: 100vh; /* 30% of total height */
+    background-image: url('images/mainbg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top; /* Centered and anchored to the top of the header */
+    position: relative;
+}
+
+.content-area {
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top; /* Centered and anchored to the top of the content area */
+    position: relative;
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.image-section {
+    background-color: rgba(255, 255, 255);
+    position: relative;
+    padding: 4px;
+}
+
+.left-moved {
+    margin-left:  30px; /* Adjust the negative margin as needed */
+    margin-right: 30px
+}
+
+/* Apply the "Jost" font to titles */
+.title {
+font-family: 'Varel Round', sans-serif;
+font-weight: bold;
+font-size: 24px; /* Adjust the font size as needed */
+margin-bottom: 20px;
+text-align: center;
+}
+
+/* Create a random underline effect */
+.title::after {
+content: '';
+display: block;
+width: 100%;
+height: 2px;
+background: linear-gradient(to right, #0074E4, #00C7F7, #32A4F6, #0074E4, #00C7F7, #32A4F6);
+position: absolute;
+bottom: 0;
+left: 0;
+transform: scaleX(0);
+transform-origin: right;
+transition: transform 0.3s ease;
+}
+
+.title:hover::after {
+transform: scaleX(1);
+transform-origin: left;
+}
+
+.text-center {
+text-align: center;
+}        
+
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+}
+
+
+
+.container {
+    display: flexbox;
+    flex-wrap: wrap;
+}
+
+.filter-bar {
+    max-width: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #f0f0f0;
+}
+
+
+
+
+.card {
+    max-width: 33%;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd; /* Add a border for better visibility */
+    transition: transform 0.3s ease;
+}
+
+
+
+.card-img-container {
+    height: 200px; /* Set a fixed height for the image container */
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.card-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    opacity: 0;  /* initially hidden */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.explore-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+    background-color: #2980b9;
+}
+
+
+.image-container:hover .explore-button {
+    opacity: 1;
+}
+
+.card-container:hover .card-content {
+    opacity: 1;
+}
+
+.explore-button {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+#event-registration {
+    background-image: url("C:\\Internship-2023\\static\\images\\form-bg.jpg");
+    background-size: 100%;
+    opacity: 0.8; /* Adjust the background transparency */
+    padding: 20px;
+    width: 70%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.9
+    ); /* Form background color with opacity */
+    /* position: relative; */
+}
+
+.event-reg-con {
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+form {
+    width: 100%;
+    float: right;
+}
+
+fieldset {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 0 0 5px #333;
+    background-color: #eee;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: calc(100% - 20px);
+    height: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.button2 {
+    color: #FFFFFF;
+    width: 100%;
+    text-align: center;
+    margin: auto !important;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#ticket-info {
+    width: 30%;
+    /* float: right; */
+    text-align: center;
+    /* position: absolute; */
+    margin-top: auto;
+    margin-bottom: auto;
+    /* transform: translateY(-50%); */
+}
+
+#ticket-count {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+.ima{
+    max-width:150px;
+    max-height: 30px;
+}
+
+.main-heading {
+    text-align: center; /* Center the text horizontally */
+    padding: 20px; /* Add some padding around the text */
+    color: #f0f0f0; 
+    margin-top: 250px; /* Adjust the margin from the top */
+    font-size: 48px; /* Increase the font size */
+    font-weight: bold; /* Make the text bold */
+    letter-spacing: 2px; /* Add some letter spacing */
+    animation: fadeInUp 1s ease; /* Add a fade-in animation */
+    font-family: 'Arial', sans-serif; 
+
+    /* You can add more animations based on your preferences */
+}
+
+/* Define the fadeInUp animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional styling for the heading text */
+.main-heading h1 {
+    margin: 0;
+    color: #FFFFFF; /* Set the text color */
+}
+
+
+.recom {
+    margin-top: 20px; 
+    color: #333; 
+}
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  nav a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the underline as needed */
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    animation: underline 0.3s ease-in-out forwards;
+  }
+  
